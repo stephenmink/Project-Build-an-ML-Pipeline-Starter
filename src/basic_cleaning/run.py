@@ -53,43 +53,43 @@ if __name__ == "__main__":
   
     parser.add_argument(
         "--input_artifact", 
-        type = str ## INSERT TYPE HERE: str, float or int,
-        help = "Ininital artifact to be cleaned" ## INSERT DESCRIPTION HERE,
+        type = str, ## INSERT TYPE HERE: str, float or int,
+        help = "Ininital artifact to be cleaned", ## INSERT DESCRIPTION HERE,
         required = True
     )
 
     parser.add_argument(
         "--output_artifact", 
-        type = str ## INSERT TYPE HERE: str, float or int,
-        help = "Output artifact for cleaned data" ## INSERT DESCRIPTION HERE,
+        type = str, ## INSERT TYPE HERE: str, float or int,
+        help = "Output artifact for cleaned data", ## INSERT DESCRIPTION HERE,
         required = True
     )
 
     parser.add_argument(
         "--output_type", 
-        type = str ## INSERT TYPE HERE: str, float or int,
-        help = "Type of the output dataset" ## INSERT DESCRIPTION HERE,
+        type = str, ## INSERT TYPE HERE: str, float or int,
+        help = "Type of the output dataset", ## INSERT DESCRIPTION HERE,
         required = True
     )
 
     parser.add_argument(
         "--output_description", 
-        type =str  ## INSERT TYPE HERE: str, float or int,
-        help = "Description of the output dataset" ## INSERT DESCRIPTION HERE,
+        type =str,  ## INSERT TYPE HERE: str, float or int,
+        help = "Description of the output dataset", ## INSERT DESCRIPTION HERE,
         required = True
     )
 
     parser.add_argument(
         "--min_price", 
-        type = float ## INSERT TYPE HERE: str, float or int,
-        help = "Minimum house price to be considered" ## INSERT DESCRIPTION HERE,
+        type = float, ## INSERT TYPE HERE: str, float or int,
+        help = "Minimum house price to be considered", ## INSERT DESCRIPTION HERE,
         required = True
     )
 
     parser.add_argument(
         "--max_price",
-        type = float ## INSERT TYPE HERE: str, float or int,
-        help = Maximum house price to be considered ## INSERT DESCRIPTION HERE,
+        type = float, ## INSERT TYPE HERE: str, float or int,
+        help = "Maximum house price to be considered", ## INSERT DESCRIPTION HERE,
         required = True
     )
 
