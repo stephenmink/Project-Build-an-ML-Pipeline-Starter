@@ -80,11 +80,20 @@ def go(config: DictConfig):
             )
 
         if "data_split" in active_steps:
-            ##################
-            # Implement here #
-            ##################
-            pass
+            _ = mlflow.run(
+                f"{config['main']['components_repository']}/train_val_test_split",
+                'main',
+                parameters={
+                    #****************************#
+                    "input": "clean_sample.csv:latest",  # Use the latest cleaned dataset
+                    "test_size": config["modeling"]["test_size"],  # Test set size fraction
+                    "random_seed": config["modeling"]["random_seed"],  # Seed for reproducibility
+                    "stratify_by": config["modeling"]["stratify_by"]  # Stratification column
+                    #****************************#
+                },
+            )
 
+            
         if "train_random_forest" in active_steps:
 
             # NOTE: we need to serialize the random forest configuration into JSON
