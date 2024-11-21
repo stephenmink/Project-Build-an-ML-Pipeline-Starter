@@ -1,5 +1,4 @@
 import json
-
 import mlflow
 import tempfile
 import os
@@ -21,7 +20,8 @@ _steps = [
 
 
 # This automatically reads in the configuration
-@hydra.main(config_name='config')
+@hydra.main(config_path=".", config_name="config", version_base="1.1")
+
 def go(config: DictConfig):
 
     # Setup the wandb experiment. All runs will be grouped under this name
@@ -103,7 +103,8 @@ def go(config: DictConfig):
 
             # NOTE: use the rf_config we just created as the rf_config parameter for the train_random_forest
             # step
-
+            with open(rf_config, "r") as fp:
+                print(json.load(fp))  # Print the content for debugging
             ##################
                 _ = mlflow.run(
                 os.path.join(hydra.utils.get_original_cwd(), "src", "train_random_forest"),
@@ -115,12 +116,14 @@ def go(config: DictConfig):
                     "stratify_by": config["modeling"]["stratify_by"], # Column for stratification
                     "rf_config": rf_config,                          # Random forest configuration JSON
                     "max_tfidf_features": config["modeling"]["max_tfidf_features"],  # Max TFIDF features
-                    "output_artifact": "random_forest_export"        # Output artifact name
+                    "output_artifact": "random_forest_export" ,       # Output artifact name
+                    "min_price": config["etl"]["min_price"],         # Pass minimum price
+                    "max_price": config["etl"]["max_price"],         # Pass maximum price
                },
             )
             ##################
 
-            pass
+        
 
         if "test_regression_model" in active_steps:
 
