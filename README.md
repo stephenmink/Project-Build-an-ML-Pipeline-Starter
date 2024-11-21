@@ -180,7 +180,9 @@ Please, make sure all steps are using **the same** python version and that you h
 
 [License](LICENSE.txt)
 
-Here are the project links: 
+Project Links:
+
 https://wandb.ai/stephenmink65-western-governors-university/nyc_airbnb?nw=nwuserstephenmink65
 
 https://github.com/stephenmink/Project-Build-an-ML-Pipeline-Starter
+
